@@ -17,12 +17,12 @@ public class Usuario {
 	private String _password;
 	
 	@Column(name="user_type")
-	private String _user_type;
+	private int _user_type;
 	
 	@Column(name="id_contato_user")
 	private int _id_contato_user;
 	
-	public Usuario(int _idusuarios, String _username, String _password, String _user_type, int _id_contato_user) {
+	public Usuario(int _idusuarios, String _username, String _password, int _user_type, int _id_contato_user) {
 		super();
 		this._idusuarios = _idusuarios;
 		this._username = _username;
@@ -59,11 +59,11 @@ public class Usuario {
 		this._password = _password;
 	}
 
-	public String get_user_type() {
+	public int get_user_type() {
 		return _user_type;
 	}
 
-	public void set_user_type(String _user_type) {
+	public void set_user_type(int _user_type) {
 		this._user_type = _user_type;
 	}
 

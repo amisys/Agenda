@@ -1,6 +1,10 @@
 package edu.alan.Agenda.util;
 
 import org.hibernate.service.ServiceRegistry;
+
+import edu.alan.Agenda.model.Contato;
+import edu.alan.Agenda.model.Usuario;
+
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -15,6 +19,9 @@ public class DBConn {
 		super();
 		try {
 			Configuration cfg = new Configuration().configure("hibernate.cfg.xml");
+			cfg.configure();
+			cfg.addAnnotatedClass(Usuario.class);
+			cfg.addAnnotatedClass(Contato.class);
 			StandardServiceRegistryBuilder registryBuilder = new StandardServiceRegistryBuilder().applySettings(cfg.getProperties());
 			ServiceRegistry serviceRegistry = registryBuilder.build();
 			sessionFactory = cfg.buildSessionFactory(serviceRegistry);
