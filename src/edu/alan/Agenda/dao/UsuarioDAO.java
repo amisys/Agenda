@@ -47,6 +47,11 @@ public class UsuarioDAO implements GenericDAO<Usuario> {
 		tx.commit();
 	}
 	
+	public Usuario findByUsername(String username) {
+		  String hql = "from Usuario where username = :nome";
+		  return (Usuario) db.createQuery(hql).setParameter("nome", username).uniqueResult();
+		}
+	
 	public void finish() {
 		db.close();
 	}
