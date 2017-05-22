@@ -35,10 +35,9 @@ public class Contato {
 		super();
 	}
 
-	public Contato(int _idcontatos, String _nome, String _telefone_1, String _telefone_2, String _endereco,
+	public Contato(String _nome, String _telefone_1, String _telefone_2, String _endereco,
 			String _cidade, String _estado, String _cep) {
 		super();
-		this._idcontatos = _idcontatos;
 		this._nome = _nome;
 		this._telefone_1 = _telefone_1;
 		this._telefone_2 = _telefone_2;

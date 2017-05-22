@@ -1,7 +1,11 @@
 package edu.alan.Agenda.dao;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
 import edu.alan.Agenda.model.Contato;
 import edu.alan.Agenda.util.DBConn;
@@ -48,6 +52,13 @@ public class ContatoDAO implements GenericDAO<Contato>{
 		db.save(entity);
 		tx.commit();
 	}
+	
+    public List<Contato> showAll() {
+        List<Contato> contatos = new ArrayList();
+		Query query = db.createQuery("from Contato");
+        contatos = query.list();
+        return contatos;
+    }
 	
 	public void finish() {
 		db.close();
